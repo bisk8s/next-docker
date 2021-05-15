@@ -4,9 +4,12 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     extends: [
       "plugin:react/recommended",
+      "standard",
       "plugin:@typescript-eslint/recommended",
-      "prettier/@typescript-eslint",
       "plugin:prettier/recommended",
+      "prettier/@typescript-eslint",
+      "prettier/standard",
+      "prettier/react"
     ],
     settings: {
       react: {
@@ -18,7 +21,11 @@ module.exports = {
       node: true,
       es6: true,
     },
-    plugins: ["@typescript-eslint", "react", "prettier"],
+    plugins: [
+      "react", 
+      "@typescript-eslint", 
+      "prettier"
+    ],
     parserOptions: {
       ecmaFeatures: {
         jsx: true,
@@ -30,9 +37,10 @@ module.exports = {
     },
     rules: {
       // Disable prop-types as we use TypeScript for type checking
+      "prettier/prettier": "error",
+      "space-before-function-paren": "off",
       "react/prop-types": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
-      "prettier/prettier": "error",
       "@typescript-eslint/interface-name-prefix": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/ban-ts-ignore": "off",
