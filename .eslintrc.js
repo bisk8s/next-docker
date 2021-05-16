@@ -4,12 +4,10 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     extends: [
       "plugin:react/recommended",
-      "standard",
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended",
-      "prettier/@typescript-eslint",
-      "prettier/standard",
-      "prettier/react"
+      "standard",
+      "prettier"
     ],
     settings: {
       react: {
@@ -20,18 +18,19 @@ module.exports = {
       browser: true,
       node: true,
       es6: true,
+      es2020: true,
+      jest: true
     },
     plugins: [
-      "react", 
-      "@typescript-eslint", 
+      "react",
+      "@typescript-eslint",
       "prettier"
     ],
     parserOptions: {
       ecmaFeatures: {
         jsx: true,
       },
-      // Allows for the parsing of modern ECMAScript features
-      ecmaVersion: 2018,
+      ecmaVersion: 12,
       // Allows for the use of imports
       sourceType: "module",
     },
@@ -46,6 +45,20 @@ module.exports = {
       "@typescript-eslint/ban-ts-ignore": "off",
       // needed for NextJS's jsx without react import
       "react/react-in-jsx-scope": "off",
+      // needed to avoid react no-use-before-define bug
+      'no-use-before-define': [0],
+      '@typescript-eslint/no-use-before-define': [1],
     },
-    globals: { React: "writable" },
+    globals: {
+      React: true,
+      JSX: true,
+      // google: true,
+      // mount: true,
+      // mountWithRouter: true,
+      // shallow: true,
+      // shallowWithRouter: true,
+      // context: true,
+      // expect: true,
+      // jsdom: true,
+     },
   };
