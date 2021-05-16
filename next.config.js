@@ -1,5 +1,8 @@
 /* eslint-disable no-param-reassign */
-module.exports = {
+const withImages = require('next-images')
+
+module.exports = withImages({
+  esModule: true,
   webpackDevMiddleware: (config) => {
     config.watchOptions = {
       poll: 1000,
@@ -7,4 +10,4 @@ module.exports = {
     };
     return config;
   },
-};
+});
